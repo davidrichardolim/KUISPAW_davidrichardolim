@@ -3,7 +3,7 @@
         <!-- Section Selamat Datang -->
         <div class="text-center mb-5 py-4 bg-light rounded-4 shadow-sm">
             <h1 class="display-5 fw-bold text-dark mb-2">Selamat Datang</h1>
-            <p class="text-secondary fs-5 mb-0">Di Sistem Informasi Sunariok</p>
+            <p class="text-secondary fs-5 mb-0">Di Sistem Informasi David Richardo Lim</p>
         </div>
 
         <!-- Section Menu Utama -->
