@@ -22,8 +22,22 @@
                             </div>
                         @endif
 
-                        <form action="{{ route("prodi.store") }}" method="POST">
+                        <form action="{{ route('prodi.store') }}" method="POST">
                             @csrf
+
+                            <div class="mb-3">
+                                <label for="fakultas" class="form-label">
+                                    Fakultas
+                                </label>
+                                <select class="form-select" name="fakultas_id" id="fakultas">
+                                    <option value="">Pilih Fakultas</option>
+                                    @foreach ($listFakultas as $fakultas)
+                                        <option value="{{ $fakultas->id }}">
+                                            {{$fakultas->nama_fakultas}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <!-- Input Nama Prodi -->
                             <div class="mb-3">

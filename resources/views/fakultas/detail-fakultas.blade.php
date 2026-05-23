@@ -22,7 +22,7 @@
                                 Nama Fakultas
                             </div>
                             <div class="col-sm-8 text-dark fw-bold">
-                                {{ $fakultas->Nama_fakultas }}
+                                {{ $fakultas->nama_fakultas }}
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@
                                 Nama Dekan
                             </div>
                             <div class="col-sm-8 text-dark">
-                                {{ $fakultas->Nama_dekan }}
+                                {{ $fakultas->nama_dekan }}
                             </div>
                         </div>
                     </div>
