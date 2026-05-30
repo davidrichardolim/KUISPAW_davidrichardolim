@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fakultas;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProdiController extends Controller
 {
@@ -40,17 +41,24 @@ class ProdiController extends Controller
             'nama_prodi' => ['required'],
             'nama_kaprodi' => ['required'],
             'alias_prodi' => ['required'],
+            'photo_kaprodi' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
         ], [
             'nama_prodi.required' => 'Nama prodi wajib diisi',
             'nama_kaprodi.required' => 'Nama Kaprodi wajib diisi',
             'alias_prodi.required' => 'Alias Prodi wajib diisi',
         ]);
 
+        $photoKaprodi = Storage::disk("public")->putFile("prodi", $request->file("photo_kaprodi"));
+
+        $validated['photo_kaprodi'] = $photoKaprodi;
+
         Prodi::create([
-            'nama_prodi' => $request->nama_prodi,
-            'nama_kaprodi' => $request->nama_kaprodi,
-            'alias_prodi' => $request->alias_prodi,
-        ]);
+        'fakultas_id' => $request->fakultas_id,
+        'nama_prodi' => $request->nama_prodi,
+        'nama_kaprodi' => $request->nama_kaprodi,
+        'alias_prodi' => $request->alias_prodi,
+        'photo_kaprodi' => $photoKaprodi,
+    ]);
 
         return redirect()->route("prodi.index")->with('success', 'Prodi Berhasil Disimpan ^_^');
     }

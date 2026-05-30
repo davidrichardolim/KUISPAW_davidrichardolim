@@ -22,7 +22,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('prodi.store') }}" method="POST">
+                        <form action="{{ route('prodi.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-3">
@@ -56,6 +56,19 @@
                                     <option value="TE" {{ old('alias_prodi') == 'TE' ? 'selected' : '' }}>TE (Teknik Elektro)</option>
                                     <option value="MJ" {{ old('alias_prodi') == 'MJ' ? 'selected' : '' }}>MJ (Manajemen)</option>
                                 </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo_kaprodi" class="form-label">
+                                    Photo Kaprodi
+                                </label>
+                                <input 
+                                    type="file"
+                                    id="photo_kaprodi"
+                                    name="photo_kaprodi"
+                                    class="form-control"
+                                    accept="image/*"
+                                    placeholder="Pilih Photo Kaprodi">
                             </div>
 
                             <!-- Input Nama Kaprodi -->
